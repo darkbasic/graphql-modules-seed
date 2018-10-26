@@ -1,0 +1,4 @@
+type Mutation {
+    createMessage(content: String!, chatId: Int): Message!
+    deleteMessage(id: Int!): Int!
+}

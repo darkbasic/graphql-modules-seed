@@ -1,0 +1,4 @@
+type Mutation {
+    createChat(title: String!, description: String!): Chat!
+    deleteChat(id: Int!): Int!
+}

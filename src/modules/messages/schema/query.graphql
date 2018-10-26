@@ -1,0 +1,4 @@
+type Query {
+    messages(chatId: Int!): [Message!]
+    message(id: Int!): Message
+}

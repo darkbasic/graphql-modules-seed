@@ -1,0 +1,6 @@
+type Chat {
+    id: Int!
+    title: String!
+    description: String!
+    messages: [Message!]
+}

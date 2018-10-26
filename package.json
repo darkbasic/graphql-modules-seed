@@ -1,0 +1,31 @@
+{
+  "name": "graphql-modules-seed",
+  "version": "1.0.0",
+  "description": "GraphQL Modules Skeleton",
+  "main": "index.js",
+  "repository": "https://github.com/darkbasic/graphql-modules-seed.git",
+  "author": "Niccolò Belli <niccolo.belli@linuxsystems.it>",
+  "license": "MIT",
+  "scripts": {
+    "generate": "gql-gen --merge-schema @graphql-modules/epoxy#mergeGraphQLSchemas --template graphql-codegen-typescript-mongodb-template --out ./src/generated-models.ts --schema \"./src/**/*.graphql\"",
+    "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@graphql-modules/core": "^0.1.9",
+    "@graphql-modules/epoxy": "^0.1.9",
+    "apollo-server": "^2.1.0",
+    "graphql": "^14.0.2",
+    "reflect-metadata": "^0.1.12",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.6.0",
+    "typescript": "^3.1.3"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.0.3",
+    "graphql-code-generator": "^0.12.6",
+    "graphql-codegen-typescript-mongodb-template": "^0.12.6",
+    "nodemon": "^1.18.5"
+  }
+}
