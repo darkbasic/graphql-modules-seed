@@ -2,10 +2,11 @@ import { GraphQLModule } from '@graphql-modules/core';
 import { loadResolversFiles, loadSchemaFiles } from '@graphql-modules/sonar';
 import { mergeGraphQLSchemas, mergeResolvers } from '@graphql-modules/epoxy';
 import { MessagesProvider } from "@modules/messages/providers/messages.provider";
+import { ChatDbObject, MessageDbObject } from "../../generated-models";
 
 export interface ChatsModuleConfig {
-  chats: any[];
-  messages: any[];
+  chats: ChatDbObject[];
+  messages: MessageDbObject[];
 }
 
 // @ts-ignore

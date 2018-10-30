@@ -1,5 +1,5 @@
-type Message {
-    id: Int!
-    chat: Chat!
-    content: String!
+type Message @entity {
+    id: Int! @column
+    content: String! @column
+    chat: Chat! @column(overrideType: "Int") @map(path: "chatId")
 }

@@ -1,5 +1,6 @@
 import { injectable, inject, ModuleConfig } from '@graphql-modules/core';
 import { ChatsModuleConfig } from "../index";
+import { ChatDbObject } from "../../../generated-models";
 
 @injectable()
 export class ChatsProvider {
@@ -8,18 +9,18 @@ export class ChatsProvider {
     @inject(ModuleConfig('chats')) private config: ChatsModuleConfig,
   ) {}
 
-  getChats(): any {
+  getChats(): ChatDbObject[] {
     return this.config.chats;
   }
 
-  getChat(id: number): any {
+  getChat(id: number): ChatDbObject {
     return this.config.chats.find(chat => chat.id === id);
   }
 
-  createChat(chat: any): any {
+  createChat(chat: any): ChatDbObject {
     const id = this.config.chats[this.config.chats.length-1].id + 1;
 
-    const newChat = {
+    const newChat: ChatDbObject = {
       id,
       ...chat,
     };

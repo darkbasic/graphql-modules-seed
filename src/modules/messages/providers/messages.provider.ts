@@ -1,5 +1,6 @@
 import { injectable, inject, ModuleConfig } from '@graphql-modules/core';
 import { MessagesModuleConfig } from "../index";
+import { MessageDbObject } from "../../../generated-models";
 
 @injectable()
 export class MessagesProvider {
@@ -8,24 +9,24 @@ export class MessagesProvider {
     @inject(ModuleConfig('messages')) private config: MessagesModuleConfig,
   ) {}
 
-  getMessages(chatId: number): any {
+  getMessages(chatId: number): MessageDbObject[] {
     return this.config.messages.filter(message => message.chatId === chatId);
   }
 
-  getMessage(id: number): any {
+  getMessage(id: number): MessageDbObject {
     return this.config.messages.find(message => message.id === id);
   }
 
-  createMessage(content: string, chatId: number): any {
+  createMessage(content: string, chatId: number): MessageDbObject {
     const id = this.config.messages[this.config.messages.length-1].id + 1;
 
-    const newMessage = {id, chatId, content};
+    const newMessage: MessageDbObject = {id, chatId, content};
 
     this.config.messages = [...this.config.messages, newMessage];
 
     this.config.chats = this.config.chats.map(chat => chat.id !== chatId ? chat : {
       ...chat,
-      messages: [...chat.messages, newMessage],
+      messageIds: [...chat.messageIds, newMessage.id],
     });
 
     return newMessage;
