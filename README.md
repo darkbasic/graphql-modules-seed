@@ -1,7 +1,7 @@
 # GraphQL-Modules seed
 ### Introduction
 
-This repository is a seed to start GraphQL-Modules projects.
+This repository is a seed to start [GraphQL-Modules](https://graphql-modules.com/) projects.
 
 It includes a couple of modules which depend on each other, but in the future I will expand it to include an User module and an Authentication module as well.
 
