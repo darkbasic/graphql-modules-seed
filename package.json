@@ -7,7 +7,7 @@
   "author": "Niccolò Belli <niccolo.belli@linuxsystems.it>",
   "license": "MIT",
   "scripts": {
-    "generate": "gql-gen --merge-schema @graphql-modules/epoxy#mergeGraphQLSchemas --template graphql-codegen-typescript-mongodb-template --out ./src/generated-models.ts --schema \"./src/**/*.graphql\"",
+    "generate": "gql-gen --template graphql-codegen-typescript-mongodb-template --out ./src/generated-models.ts -r ts-node/register/transpile-only -r tsconfig-paths/register --schema \"./src/schema.ts\"",
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
     "build": "tsc"
