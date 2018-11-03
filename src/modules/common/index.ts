@@ -13,7 +13,6 @@ export interface CommonModuleConfig {
 }
 
 export const commonModule = new GraphQLModule<CommonModuleConfig>({
-  name: 'common',
   providers: ({chats, messages}) => [
     { provide: CHATS, useValue: chats },
     { provide: MESSAGES, useValue: messages },
