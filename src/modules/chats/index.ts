@@ -6,8 +6,7 @@ import { commonModule } from "@modules/common";
 import { ChatsProvider } from "@modules/chats/providers/chats.provider";
 
 export const chatsModule = new GraphQLModule({
-  name: 'chats',
-  imports: [
+  imports: () => [
     commonModule.forChild(),
     messagesModule,
   ],

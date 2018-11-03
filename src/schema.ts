@@ -6,7 +6,6 @@ import { chatsModule } from "@modules/chats";
 import { messagesModule } from "@modules/messages";
 
 const { typeDefs } = new GraphQLModule({
-  name: 'app',
   imports: [
     commonModule.forRoot({
       chats: [],

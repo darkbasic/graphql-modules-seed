@@ -1,11 +1,8 @@
 import 'reflect-metadata';
-import { GraphQLModule } from '@graphql-modules/core';
+import { appModule } from './modules/app';
 import { ApolloServer } from 'apollo-server';
-import { chatsModule } from "@modules/chats";
-import { messagesModule } from "@modules/messages";
-import { commonModule } from "@modules/common";
 
-export const chats = [
+const chats = [
   {
     id: 1,
     title: "My first chat",
@@ -20,7 +17,7 @@ export const chats = [
   },
 ];
 
-export const messages = [
+const messages = [
   {
     id: 1,
     chatId: 1,
@@ -43,16 +40,9 @@ export const messages = [
   },
 ];
 
-const { schema, context } = new GraphQLModule({
-  name: 'app',
-  imports: [
-    commonModule.forRoot({
-      chats,
-      messages,
-    }),
-    chatsModule,
-    messagesModule,
-  ],
+const { schema, context } = appModule.forRoot({
+  chats,
+  messages,
 });
 
 const serverConfig = {
