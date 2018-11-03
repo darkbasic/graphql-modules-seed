@@ -1,19 +1,18 @@
 import { GraphQLModule } from '@graphql-modules/core';
 import { loadResolversFiles, loadSchemaFiles } from '@graphql-modules/sonar';
 import { mergeGraphQLSchemas, mergeResolvers } from '@graphql-modules/epoxy';
-import { ChatsProvider } from "@modules/chats/providers/chats.provider";
-import { ChatDbObject, MessageDbObject } from "../../generated-models";
+import { MessagesProvider } from "@modules/messages/providers/messages.provider";
+import { commonModule } from "@modules/common";
+import { chatsModule } from "@modules/chats";
 
-export interface MessagesModuleConfig {
-  messages: MessageDbObject[];
-  chats: ChatDbObject[];
-}
-
-// @ts-ignore
-export const messagesModule = new GraphQLModule<MessagesModuleConfig>({
+export const messagesModule = new GraphQLModule({
   name: 'messages',
+  imports: [
+    commonModule.forChild(),
+    chatsModule,
+  ],
   providers: [
-    ChatsProvider,
+    MessagesProvider,
   ],
   typeDefs: mergeGraphQLSchemas(loadSchemaFiles(__dirname + '/schema/')),
   resolvers: mergeResolvers(loadResolversFiles(__dirname + '/resolvers/')),

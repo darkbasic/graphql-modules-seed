@@ -24,14 +24,14 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@graphql-modules/core@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@graphql-modules/core/-/core-0.1.9.tgz#9a0b44318a223810bc597b52e413da93bca436a9"
-  integrity sha512-u5JdYmy+lFcoAPAftXmE+bHF4fSgqaZo8FvMF/YJX71iwMY8AwINIOBsmmg6fgjsxXt1P64n3qj1dkC9G4VXzw==
+"@graphql-modules/core@0.2.0-alpha.00afdfcf":
+  version "0.2.0-alpha.00afdfcf"
+  resolved "https://registry.yarnpkg.com/@graphql-modules/core/-/core-0.2.0-alpha.00afdfcf.tgz#7cec62d70fad18532f3ec593466b1034ae5b467f"
+  integrity sha512-OFCH0qJLgqWx+7HA9xQiQkIQwNmTQj/E8H75Y/EWlbSZkpLfr97mLeJWNFy6sgFNNxxghJMpvFSprz6wcDHmRA==
   dependencies:
-    "@graphql-modules/epoxy" "0.1.9"
-    "@graphql-modules/logger" "0.1.9"
-    "@graphql-modules/sonar" "0.1.9"
+    "@graphql-modules/epoxy" "0.2.0-alpha.00afdfcf"
+    "@graphql-modules/logger" "0.2.0-alpha.00afdfcf"
+    "@graphql-modules/sonar" "0.2.0-alpha.00afdfcf"
     dependency-graph "0.7.2"
     graphql-tools "4.0.2"
     inversify "5.0.1"
@@ -47,12 +47,12 @@
     deepmerge "2.1.1"
     graphql-tools "3.1.1"
 
-"@graphql-modules/epoxy@0.1.9", "@graphql-modules/epoxy@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@graphql-modules/epoxy/-/epoxy-0.1.9.tgz#291879d517ba4473ea334edbb137a2cc6aed384c"
-  integrity sha512-xWDhwe0ADZvAs6JhvpCHH0jf6YmjEmYshRI/VB6sHE54RGB9GOHqKAqWL/vcbzMrFI2cr40Qqoy7qqaEAh6Ifw==
+"@graphql-modules/epoxy@0.2.0-alpha.00afdfcf":
+  version "0.2.0-alpha.00afdfcf"
+  resolved "https://registry.yarnpkg.com/@graphql-modules/epoxy/-/epoxy-0.2.0-alpha.00afdfcf.tgz#8fe36d33e0cb246b2ff10ad96d8079e9b82784a1"
+  integrity sha512-6XEJnNyP6aLXjcyRUOKhK1N2a7XIbnQ8CqS7tZA3ro2MWCwnj2m2kYglMf7f2w5U1On7Zp1MYI3YqRxh7ncnOw==
   dependencies:
-    "@graphql-modules/logger" "0.1.9"
+    "@graphql-modules/logger" "0.2.0-alpha.00afdfcf"
     "@types/deepmerge" "2.1.0"
     deepmerge "2.2.1"
     graphql-tools "4.0.2"
@@ -66,21 +66,21 @@
     moment "2.22.2"
     winston "3.0.0"
 
-"@graphql-modules/logger@0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@graphql-modules/logger/-/logger-0.1.9.tgz#768186df12ad488623ef7231d1bf096fe1610b76"
-  integrity sha512-nmxHyJkb2OUA3s7Za1McljkxxdLUb8c9h2mcEHWCsjVjE92XnzPJEIr2Ab7xzRWa+/q9w8nGAYph3eZDXwFgwA==
+"@graphql-modules/logger@0.2.0-alpha.00afdfcf":
+  version "0.2.0-alpha.00afdfcf"
+  resolved "https://registry.yarnpkg.com/@graphql-modules/logger/-/logger-0.2.0-alpha.00afdfcf.tgz#4f0830d98ad6fd650f378ba6c4aaec6a5e2495e8"
+  integrity sha512-qJVeAQF1gG4IDo97UMdKDJhlzTqewVft+CMw5I99VnwKJ/K29V8BhMj8pULGVPXclyM5P9XIz4AT8+k5WhvL6Q==
   dependencies:
     moment "2.22.2"
     tslib "1.9.3"
     winston "3.1.0"
 
-"@graphql-modules/sonar@0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@graphql-modules/sonar/-/sonar-0.1.9.tgz#4ec97a535622561b0d3c03e1629f003b6120e943"
-  integrity sha512-1qQmxqFmRmcvyDK1JYoqbRdnB48hupOV4ZAyv7/eFscKImBZK8iQJwFmFL5PZ4MPj6Dh/oQTWTbppWAOC3VUaw==
+"@graphql-modules/sonar@0.2.0-alpha.00afdfcf":
+  version "0.2.0-alpha.00afdfcf"
+  resolved "https://registry.yarnpkg.com/@graphql-modules/sonar/-/sonar-0.2.0-alpha.00afdfcf.tgz#1bc03f637090c85e80b809d2febb797de450f906"
+  integrity sha512-rj7FJ1yGgj/Tlg9+qa4ytB6DnT0XiZkMcGRJwKsDr+EVjQfDff785d7PgLEavPYYfcgu7yMoV6JujtS7EsXhSQ==
   dependencies:
-    "@graphql-modules/logger" "0.1.9"
+    "@graphql-modules/logger" "0.2.0-alpha.00afdfcf"
     "@types/glob" "7.1.1"
     glob "7.1.3"
     tslib "1.9.3"
@@ -1604,10 +1604,10 @@ graphql-codegen-core@0.12.6:
     ts-log "2.1.3"
     winston "3.1.0"
 
-graphql-codegen-typescript-mongodb-template@^0.12.6:
-  version "0.12.6"
-  resolved "https://registry.yarnpkg.com/graphql-codegen-typescript-mongodb-template/-/graphql-codegen-typescript-mongodb-template-0.12.6.tgz#44752747902c43f93d01ad6d304ad92371974158"
-  integrity sha512-0sC36BjbspKyiMju0Oe5q+EL3E5eHbed+4b1sH15ztUBmjql4uaMvbtLuGp5DcDJm8aMaRRGO/RGewsXkT2/ZQ==
+graphql-codegen-typescript-mongodb-template@0.13.0-alpha.106f2555:
+  version "0.13.0-alpha.106f2555"
+  resolved "https://registry.yarnpkg.com/graphql-codegen-typescript-mongodb-template/-/graphql-codegen-typescript-mongodb-template-0.13.0-alpha.106f2555.tgz#d602bb860ea59ef5473b1fe113a8d8e17adf1c36"
+  integrity sha512-4VCvQ9NGSUhEgl21YJtCLCqrarmnEi8eMRTr9S8i0CTHL1KKjBGNMYFoakTJr6gJ+fx8x/A58xhLUXr4Ga1d2w==
   dependencies:
     lodash "4.17.11"
 

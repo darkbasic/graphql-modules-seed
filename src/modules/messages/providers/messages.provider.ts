@@ -1,30 +1,31 @@
-import { injectable, inject, ModuleConfig } from '@graphql-modules/core';
-import { MessagesModuleConfig } from "../index";
-import { MessageDbObject } from "../../../generated-models";
+import { Injectable, Inject } from '@graphql-modules/core';
+import { ChatDbObject, MessageDbObject } from "../../../generated-models";
+import { CHATS, MESSAGES } from "@modules/common";
 
-@injectable()
+@Injectable()
 export class MessagesProvider {
 
   constructor(
-    @inject(ModuleConfig('messages')) private config: MessagesModuleConfig,
+    @Inject(MESSAGES) private messages: MessageDbObject[],
+    @Inject(CHATS) private chats: ChatDbObject[],
   ) {}
 
   getMessages(chatId: number): MessageDbObject[] {
-    return this.config.messages.filter(message => message.chatId === chatId);
+    return this.messages.filter(message => message.chatId === chatId);
   }
 
   getMessage(id: number): MessageDbObject {
-    return this.config.messages.find(message => message.id === id);
+    return this.messages.find(message => message.id === id);
   }
 
   createMessage(content: string, chatId: number): MessageDbObject {
-    const id = this.config.messages[this.config.messages.length-1].id + 1;
+    const id = this.messages[this.messages.length-1].id + 1;
 
     const newMessage: MessageDbObject = {id, chatId, content};
 
-    this.config.messages = [...this.config.messages, newMessage];
+    this.messages = [...this.messages, newMessage];
 
-    this.config.chats = this.config.chats.map(chat => chat.id !== chatId ? chat : {
+    this.chats = this.chats.map(chat => chat.id !== chatId ? chat : {
       ...chat,
       messageIds: [...chat.messageIds, newMessage.id],
     });
@@ -33,9 +34,9 @@ export class MessagesProvider {
   }
 
   deleteMessage(id: number): number {
-    const chatId = this.config.messages.find(message => message.id === id).chatId;
-    this.config.messages.filter(message => message.id !== id);
-    this.config.chats = this.config.chats.map(chat => chat.id !== chatId ? chat : {
+    const chatId = this.messages.find(message => message.id === id).chatId;
+    this.messages.filter(message => message.id !== id);
+    this.chats = this.chats.map(chat => chat.id !== chatId ? chat : {
       ...chat,
       messages: chat.messageIds.filter(messageId => messageId !== id),
     });

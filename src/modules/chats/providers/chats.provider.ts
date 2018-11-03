@@ -1,38 +1,39 @@
-import { injectable, inject, ModuleConfig } from '@graphql-modules/core';
-import { ChatsModuleConfig } from "../index";
-import { ChatDbObject } from "../../../generated-models";
+import { Inject, Injectable } from '@graphql-modules/core';
+import { ChatDbObject, MessageDbObject } from "../../../generated-models";
+import { CHATS, MESSAGES } from "@modules/common";
 
-@injectable()
+@Injectable()
 export class ChatsProvider {
 
   constructor(
-    @inject(ModuleConfig('chats')) private config: ChatsModuleConfig,
+    @Inject(CHATS) private chats: ChatDbObject[],
+    @Inject(MESSAGES) private messages: MessageDbObject[],
   ) {}
 
   getChats(): ChatDbObject[] {
-    return this.config.chats;
+    return this.chats;
   }
 
   getChat(id: number): ChatDbObject {
-    return this.config.chats.find(chat => chat.id === id);
+    return this.chats.find(chat => chat.id === id);
   }
 
   createChat(chat: any): ChatDbObject {
-    const id = this.config.chats[this.config.chats.length-1].id + 1;
+    const id = this.chats[this.chats.length-1].id + 1;
 
     const newChat: ChatDbObject = {
       id,
       ...chat,
     };
 
-    this.config.chats = [ ...this.config.chats, newChat ];
+    this.chats = [ ...this.chats, newChat ];
 
     return newChat;
   }
 
   deleteChat(id: number): number {
-    this.config.messages = this.config.messages.filter(message => message.chatId !== id);
-    this.config.chats = this.config.chats.filter(chat => chat.id !== id);
+    this.messages = this.messages.filter(message => message.chatId !== id);
+    this.chats = this.chats.filter(chat => chat.id !== id);
 
     return id;
   }
