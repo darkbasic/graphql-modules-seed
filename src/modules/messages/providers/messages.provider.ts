@@ -1,7 +1,8 @@
-import { Inject } from '@graphql-modules/core';
-import { ChatDbObject, MessageDbObject } from "../../../generated-models";
+import { Inject, Injectable } from '@graphql-modules/core';
+import { ChatDbObject, MessageDbObject } from "@models";
 import { CHATS, MESSAGES } from "@modules/common";
 
+@Injectable()
 export class MessagesProvider {
 
   constructor(

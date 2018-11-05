@@ -10,7 +10,7 @@
     "outDir": "dist",
     "typeRoots": ["node_modules/@types"],
     "paths": {
-      "@models": ["./models"],
+      "@models": ["./generated-models"],
       "@modules/*": ["./modules/*"]
     },
     "baseUrl": "./src/",

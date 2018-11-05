@@ -1,6 +1,6 @@
 import { ModuleContext } from '@graphql-modules/core';
 import { ChatsProvider } from "../providers/chats.provider";
-import { ChatDbObject } from "../../../generated-models";
+import { ChatDbObject } from "@models";
 
 export default {
   Query: {

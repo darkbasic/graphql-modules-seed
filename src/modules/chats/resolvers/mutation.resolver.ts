@@ -1,6 +1,6 @@
 import { ModuleContext } from '@graphql-modules/core';
 import { ChatsProvider } from "../providers/chats.provider";
-import { ChatDbObject, CreateChatMutationArgs, DeleteChatMutationArgs } from "../../../generated-models";
+import { ChatDbObject, CreateChatMutationArgs, DeleteChatMutationArgs } from "@models";
 
 export default {
   Mutation: {

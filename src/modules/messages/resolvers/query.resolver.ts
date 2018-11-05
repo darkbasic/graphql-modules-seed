@@ -1,6 +1,6 @@
 import { ModuleContext } from '@graphql-modules/core';
 import { MessagesProvider } from "../providers/messages.provider";
-import { MessageDbObject } from "../../../generated-models";
+import { MessageDbObject } from "@models";
 
 export default {
   Query: {

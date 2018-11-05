@@ -1,6 +1,6 @@
 import { ModuleContext } from '@graphql-modules/core';
 import { MessagesProvider } from "../providers/messages.provider";
-import { CreateMessageMutationArgs, DeleteMessageMutationArgs, MessageDbObject } from "../../../generated-models";
+import { CreateMessageMutationArgs, DeleteMessageMutationArgs, MessageDbObject } from "@models";
 
 export default {
   Mutation: {

@@ -1,6 +1,6 @@
 import { ModuleContext } from "@graphql-modules/core";
-import { MessagesProvider } from "../../messages/providers/messages.provider";
-import { MessageDbObject } from "../../../generated-models";
+import { MessagesProvider } from "@modules/messages/providers/messages.provider";
+import { MessageDbObject } from "@models";
 
 export default {
   Chat: {
