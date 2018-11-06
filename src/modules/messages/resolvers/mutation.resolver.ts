@@ -5,8 +5,8 @@ import { CreateMessageMutationArgs, DeleteMessageMutationArgs, MessageDbObject }
 export default {
   Mutation: {
     createMessage: (root, {content, chatId}: CreateMessageMutationArgs, { injector }: ModuleContext): MessageDbObject =>
-      injector.get<MessagesProvider>(MessagesProvider).createMessage(content, chatId),
+      injector.get(MessagesProvider).createMessage(content, chatId),
     deleteMessage: (root, {id}: DeleteMessageMutationArgs, { injector }: ModuleContext): number =>
-      injector.get<MessagesProvider>(MessagesProvider).deleteMessage(id),
+      injector.get(MessagesProvider).deleteMessage(id),
   },
 };

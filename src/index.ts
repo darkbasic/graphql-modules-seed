@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { appModule } from './modules/app';
+import { AppModule } from './modules/app';
 import { ApolloServer } from 'apollo-server';
 
 const chats = [
@@ -40,7 +40,7 @@ const messages = [
   },
 ];
 
-const { schema, context } = appModule.forRoot({
+const { schema, context } = AppModule.forRoot({
   chats,
   messages,
 });

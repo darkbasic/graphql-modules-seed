@@ -12,7 +12,7 @@ export interface CommonModuleConfig {
   messages: MessageDbObject[];
 }
 
-export const commonModule = new GraphQLModule<CommonModuleConfig>({
+export const CommonModule = new GraphQLModule<CommonModuleConfig>({
   providers: ({chats, messages}) => [
     { provide: CHATS, useValue: chats },
     { provide: MESSAGES, useValue: messages },

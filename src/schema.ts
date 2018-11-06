@@ -1,8 +1,9 @@
 import 'reflect-metadata';
 import { makeExecutableSchema } from 'graphql-tools';
-import { appModule } from '@modules/app';
+import { AppModule } from '@modules/app';
 
-const { typeDefs } = appModule;
+// Ask for typeDefs without all schema with business logi
+const { typeDefs } = AppModule;
 export default makeExecutableSchema({
   typeDefs
 });

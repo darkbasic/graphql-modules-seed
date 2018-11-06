@@ -5,8 +5,8 @@ import { MessageDbObject } from "@models";
 export default {
   Query: {
     messages: (root, {chatId}: any, { injector }: ModuleContext): MessageDbObject[] =>
-      injector.get<MessagesProvider>(MessagesProvider).getMessages(chatId),
+      injector.get(MessagesProvider).getMessages(chatId),
     message: (root, {id}: any, { injector }: ModuleContext): MessageDbObject =>
-      injector.get<MessagesProvider>(MessagesProvider).getMessage(id),
+      injector.get(MessagesProvider).getMessage(id),
   },
 };

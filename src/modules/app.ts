@@ -1,18 +1,16 @@
 import { GraphQLModule } from "@graphql-modules/core";
 
-import { commonModule } from "./common";
+import { CommonModule } from "./common";
+import { ChatsModule } from "./chats";
+import { MessagesModule } from "./messages";
 
-import { chatsModule } from "./chats";
-
-import { messagesModule } from "./messages";
-
-export const appModule = new GraphQLModule({
+export const AppModule = new GraphQLModule({
     imports: ({ chats, messages}) => [
-        commonModule.forRoot({
+        CommonModule.forRoot({
             chats,
             messages,
         }),
-        chatsModule,
-        messagesModule,
+        ChatsModule,
+        MessagesModule,
     ],
 });

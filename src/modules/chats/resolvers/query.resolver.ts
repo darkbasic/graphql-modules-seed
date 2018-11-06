@@ -5,8 +5,8 @@ import { ChatDbObject } from "@models";
 export default {
   Query: {
     chats: (root, args, { injector }: ModuleContext): ChatDbObject[] =>
-      injector.get<ChatsProvider>(ChatsProvider).getChats(),
+      injector.get(ChatsProvider).getChats(),
     chat: (root, {id}: any, { injector }: ModuleContext): ChatDbObject =>
-      injector.get<ChatsProvider>(ChatsProvider).getChat(id),
+      injector.get(ChatsProvider).getChat(id),
   },
 };
