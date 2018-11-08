@@ -7,5 +7,4 @@ generates:
   ./src/generated-models.ts:
     plugins:
       - typescript-common
-      - typescript-server
       - typescript-mongodb
