@@ -30,11 +30,11 @@
   "devDependencies": {
     "concurrently": "4.0.1",
     "@types/graphql": "14.0.3",
-    "graphql-code-generator": "0.14.0-alpha.5d14f9ae",
-    "graphql-codegen-plugin-helpers": "0.14.0-alpha.5d14f9ae",
-    "graphql-codegen-typescript-common": "0.14.0-alpha.5d14f9ae",
-    "graphql-codegen-typescript-mongodb": "0.14.0-alpha.5d14f9ae",
-    "graphql-codegen-typescript-server": "0.14.0-alpha.5d14f9ae",
+    "graphql-code-generator": "0.14.0-alpha.d97d93cd",
+    "graphql-codegen-plugin-helpers": "0.14.0-alpha.d97d93cd",
+    "graphql-codegen-typescript-common": "0.14.0-alpha.d97d93cd",
+    "graphql-codegen-typescript-mongodb": "0.14.0-alpha.d97d93cd",
+    "graphql-codegen-typescript-server": "0.14.0-alpha.d97d93cd",
     "nodemon": "1.18.5"
   }
 }
