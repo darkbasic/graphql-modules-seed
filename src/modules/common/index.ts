@@ -2,7 +2,7 @@ import { GraphQLModule } from '@graphql-modules/core';
 import { loadResolversFiles, loadSchemaFiles } from '@graphql-modules/sonar';
 import { mergeGraphQLSchemas, mergeResolvers } from '@graphql-modules/epoxy';
 import { ChatDbObject, MessageDbObject } from "@models";
-import { DIRECTIVES } from 'graphql-codegen-typescript-mongodb-template';
+import { DIRECTIVES } from 'graphql-codegen-typescript-mongodb';
 
 export const CHATS = Symbol.for('CHATS');
 export const MESSAGES = Symbol.for('MESSAGES');

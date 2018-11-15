@@ -1,0 +1,11 @@
+overwrite: true
+schema: ./src/schema.ts
+require:
+  - ts-node/register/transpile-only
+  - tsconfig-paths/register
+generates:
+  ./src/generated-models.ts:
+    plugins:
+      - typescript-common
+      - typescript-server
+      - typescript-mongodb
