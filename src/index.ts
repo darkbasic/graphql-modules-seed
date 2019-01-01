@@ -7,13 +7,11 @@ const chats = [
     id: 1,
     title: "My first chat",
     description: "Just a chat",
-    messageIds: [2, 4],
   },
   {
     id: 2,
     title: "My second chat",
     description: "Yet another chat",
-    messageIds: [1, 3],
   },
 ];
 
