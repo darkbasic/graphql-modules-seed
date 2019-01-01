@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@graphql-modules/core';
+import { Injectable, Inject } from '@graphql-modules/di';
 import { ChatDbObject, MessageDbObject } from "@models";
 import { CHATS, MESSAGES } from "@modules/common";
 

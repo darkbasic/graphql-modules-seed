@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@graphql-modules/core';
+import { Inject, Injectable } from '@graphql-modules/di';
 import { ChatDbObject, MessageDbObject } from "@models";
 import { CHATS, MESSAGES } from "@modules/common";
 
@@ -27,7 +27,7 @@ export class MessagesProvider {
 
     this.chats = this.chats.map(chat => chat.id !== chatId ? chat : {
       ...chat,
-      messageIds: [...chat.messageIds, newMessage.id],
+      messageIds: [...this.messages.filter(message => message.chatId === chat.id).map(message => message.id), newMessage.id],
     });
 
     return newMessage;
@@ -38,7 +38,7 @@ export class MessagesProvider {
     this.messages.filter(message => message.id !== id);
     this.chats = this.chats.map(chat => chat.id !== chatId ? chat : {
       ...chat,
-      messages: chat.messageIds.filter(messageId => messageId !== id),
+      messages: this.messages.filter(message => message.chatId === chat.id).map(message => message.id),
     });
 
     return id;

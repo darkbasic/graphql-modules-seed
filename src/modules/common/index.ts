@@ -13,13 +13,14 @@ export interface CommonModuleConfig {
 }
 
 export const CommonModule = new GraphQLModule<CommonModuleConfig>({
-  providers: ({chats, messages}) => [
+  providers: ({ config: {chats, messages} }) => [
     { provide: CHATS, useValue: chats },
     { provide: MESSAGES, useValue: messages },
   ],
-  typeDefs: mergeGraphQLSchemas([
+  typeDefs: [
     ...loadSchemaFiles(__dirname + '/schema/'),
     DIRECTIVES,
-  ]),
+  ],
   resolvers: mergeResolvers(loadResolversFiles(__dirname + '/resolvers/')),
+  configRequired: true
 });

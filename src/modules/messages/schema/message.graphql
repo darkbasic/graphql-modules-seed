@@ -3,3 +3,7 @@ type Message @entity {
     content: String! @column
     chat: Chat! @column(overrideType: "Int") @map(path: "chatId")
 }
+
+extend type Chat {
+    messages: [Message]
+}

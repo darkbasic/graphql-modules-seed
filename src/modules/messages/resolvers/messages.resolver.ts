@@ -1,10 +1,9 @@
-import { ModuleContext } from "@graphql-modules/core";
 import { ChatsProvider } from "@modules/chats/providers/chats.provider";
-import { ChatDbObject } from "@models";
+import { IResolvers } from "@models";
 
 export default {
   Message: {
-    chat: (message: any, args, { injector }: ModuleContext): ChatDbObject =>
+    chat: (message, args, { injector }) =>
       injector.get(ChatsProvider).getChat(message.chatId),
   },
-};
+} as IResolvers;

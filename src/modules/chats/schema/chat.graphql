@@ -2,5 +2,4 @@ type Chat @entity {
     id: Int! @column
     title: String! @column
     description: String! @column
-    messages: [Message] @column(overrideType: "Int") @map(path: "messageIds")
 }

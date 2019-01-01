@@ -6,6 +6,13 @@ require:
 generates:
   ./src/generated-models.ts:
     plugins:
+      - add: /* tslint:ignore */
       - typescript-common
-      - typescript-server
       - typescript-mongodb
+      - typescript-server
+      - typescript-resolvers
+    config:
+      contextType: "@graphql-modules/core#ModuleContext"
+      mappers:
+        Chat: ChatDbObject
+        Message: MessageDbObject

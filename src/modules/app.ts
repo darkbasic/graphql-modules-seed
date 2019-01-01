@@ -5,7 +5,7 @@ import { ChatsModule } from "./chats";
 import { MessagesModule } from "./messages";
 
 export const AppModule = new GraphQLModule({
-    imports: ({ chats, messages}) => [
+    imports: ({ config: { chats, messages} }) => [
         CommonModule.forRoot({
             chats,
             messages,
@@ -13,4 +13,5 @@ export const AppModule = new GraphQLModule({
         ChatsModule,
         MessagesModule,
     ],
+    configRequired: true,
 });

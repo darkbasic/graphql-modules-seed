@@ -1,12 +1,11 @@
-import { ModuleContext } from '@graphql-modules/core';
 import { ChatsProvider } from "../providers/chats.provider";
-import { ChatDbObject, CreateChatMutationArgs, DeleteChatMutationArgs } from "@models";
+import { IResolvers } from "@models";
 
 export default {
   Mutation: {
-    createChat: (root, {title, description}: CreateChatMutationArgs, { injector }: ModuleContext): ChatDbObject =>
+    createChat: (root, {title, description}, { injector }) =>
       injector.get(ChatsProvider).createChat({title, description}),
-    deleteChat: (root, {id}: DeleteChatMutationArgs, { injector }: ModuleContext): number =>
+    deleteChat: (root, {id}, { injector }) =>
       injector.get(ChatsProvider).deleteChat(id),
   },
-};
+} as IResolvers;
