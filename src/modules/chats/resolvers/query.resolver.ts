@@ -1,11 +1,9 @@
 import { ChatsProvider } from "../providers/chats.provider";
-import { IResolvers } from "@models";
+import { QueryResolvers } from "@models";
 
-export default {
-  Query: {
-    chats: (root, args, { injector }) =>
-      injector.get(ChatsProvider).getChats(),
-    chat: (root, {id}: any, { injector }) =>
-      injector.get(ChatsProvider).getChat(id),
-  },
-} as IResolvers;
+export const Query: QueryResolvers.Resolvers = {
+  chats: (root, args, { injector }) =>
+    injector.get(ChatsProvider).getChats(),
+  chat: (root, { id }: any, { injector }) =>
+    injector.get(ChatsProvider).getChat(id),
+};

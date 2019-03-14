@@ -1,6 +1,9 @@
 import 'reflect-metadata';
 import { AppModule } from './modules/app';
-import { ApolloServer } from 'apollo-server';
+import * as express from 'express';
+import * as graphqlHTTP from 'express-graphql';
+
+const PORT = process.env.PORT || 4000;
 
 const chats = [
   {
@@ -38,19 +41,18 @@ const messages = [
   },
 ];
 
-const { schema, context } = AppModule.forRoot({
+const { schema } = AppModule.forRoot({
   chats,
   messages,
 });
 
-const serverConfig = {
-  introspection: true,
+const app = express();
+
+app.use(graphqlHTTP({
   schema,
-  context,
-};
+  graphiql: true,
+}));
 
-const server = new ApolloServer(serverConfig);
-
-server.listen().then(({ url }) => {
-  console.log(`Server ready at ${url}`);
+app.listen(PORT, () => {
+  console.log(`Server ready at http://localhost:${PORT}`);
 });

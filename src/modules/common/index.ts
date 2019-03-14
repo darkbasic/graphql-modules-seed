@@ -1,6 +1,5 @@
 import { GraphQLModule } from '@graphql-modules/core';
-import { loadResolversFiles, loadSchemaFiles } from '@graphql-modules/sonar';
-import { mergeGraphQLSchemas, mergeResolvers } from '@graphql-modules/epoxy';
+import { loadResolversFiles, loadSchemaFiles } from 'graphql-toolkit';
 import { ChatDbObject, MessageDbObject } from "@models";
 import { DIRECTIVES } from 'graphql-codegen-typescript-mongodb';
 
@@ -21,6 +20,6 @@ export const CommonModule = new GraphQLModule<CommonModuleConfig>({
     ...loadSchemaFiles(__dirname + '/schema/'),
     DIRECTIVES,
   ],
-  resolvers: mergeResolvers(loadResolversFiles(__dirname + '/resolvers/')),
+  resolvers: loadResolversFiles(__dirname + '/resolvers/'),
   configRequired: true
 });

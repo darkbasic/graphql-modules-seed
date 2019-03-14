@@ -1,18 +1,17 @@
 import { GraphQLModule } from '@graphql-modules/core';
-import { loadResolversFiles, loadSchemaFiles } from '@graphql-modules/sonar';
-import { mergeResolvers } from '@graphql-modules/epoxy';
+import { loadResolversFiles, loadSchemaFiles } from 'graphql-toolkit';
 import { MessagesProvider } from "@modules/messages/providers/messages.provider";
 import { CommonModule } from "@modules/common";
 import { ChatsModule } from "@modules/chats";
 
 export const MessagesModule = new GraphQLModule({
   imports: [
-    CommonModule.forChild(),
+    CommonModule,
     ChatsModule,
   ],
   providers: [
     MessagesProvider,
   ],
   typeDefs: loadSchemaFiles(__dirname + '/schema/'),
-  resolvers: mergeResolvers(loadResolversFiles(__dirname + '/resolvers/')),
+  resolvers: loadResolversFiles(__dirname + '/resolvers/'),
 });

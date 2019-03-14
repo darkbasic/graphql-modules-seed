@@ -1,11 +1,9 @@
 import { MessagesProvider } from "../providers/messages.provider";
-import { IResolvers } from "@models";
+import { MutationResolvers } from "@models";
 
-export default {
-  Mutation: {
-    createMessage: (root, {content, chatId}, { injector }) =>
-      injector.get(MessagesProvider).createMessage(content, chatId),
-    deleteMessage: (root, {id}, { injector }) =>
-      injector.get(MessagesProvider).deleteMessage(id),
-  },
-} as IResolvers;
+export const Mutation: MutationResolvers.Resolvers = {
+  createMessage: (root, { content, chatId }, { injector }) =>
+    injector.get(MessagesProvider).createMessage(content, chatId),
+  deleteMessage: (root, { id }, { injector }) =>
+    injector.get(MessagesProvider).deleteMessage(id),
+};
